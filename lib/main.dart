@@ -33,18 +33,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final TextStyle headingStyle = TextStyle(
         color: Colors.black54,
+        fontFamily: 'Open Sans',
         fontSize: 20,
         fontWeight: FontWeight.w600,
         decoration: TextDecoration.none);
 
     final TextStyle subHeadingStyle = TextStyle(
         color: Colors.black45,
+        fontFamily: 'Open Sans',
         fontSize: 14,
         fontWeight: FontWeight.normal,
         decoration: TextDecoration.none);
 
     final TextStyle companyTextStyle = TextStyle(
         color: Colors.black38,
+        fontFamily: 'Open Sans',
         fontSize: 12,
         fontWeight: FontWeight.normal,
         decoration: TextDecoration.none);
@@ -117,7 +120,24 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text("View Profile"),
                           textColor: Colors.blue.shade700,
                           color: Colors.blue.shade700,
-                          onPressed: () => {},
+                          onPressed: () => {
+                            showDialog(
+                                context: context,
+                                barrierDismissible: true,
+                                builder: (_) => AlertDialog(
+                                      title: Text('View Profile'),
+                                      content:
+                                          Text('Thank you vieweing my profile'),
+                                      actions: <Widget>[
+                                        FlatButton(
+                                          child: Text('OK'),
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                        )
+                                      ],
+                                      elevation: 24.0,
+                                    ))
+                          },
                         ),
                         Container(
                             padding: EdgeInsets.fromLTRB(10, 5, 10, 20),
